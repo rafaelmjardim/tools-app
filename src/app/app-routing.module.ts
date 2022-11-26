@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'cep',
     loadChildren: () => import('./modules/cep/cep.module').then(m => m.CepModule)
+  },
+  {
+    path: 'tasks',
+    loadChildren: () => import('./modules/tasks/tasks.module').then(m => m.TasksModule)
   }
   
 ];
