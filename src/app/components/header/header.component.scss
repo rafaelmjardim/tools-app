@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 60rem;
+    height: 5rem;
+    background-color: #363636;
+    border: .1rem solid greenyellow;
+    border-radius:0 0 1rem 1rem;
+    border-top: none;
+
+    &_menu {
+        display: flex;
+        gap: 2rem;
+
+        &_link {
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                color: greenyellow;
+            }
+        }
+    }
+
+    
+}
