@@ -8,15 +8,15 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent implements OnInit {
 
-  posts: any[] = [];
+  tasks: any[] = [];
 
   constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void {
 
     this.tasksService.getPosts().subscribe(res => {
-      this.posts = res;
-      console.log ('posts',this.posts)
+      this.tasks = res;
+      console.log ('tasks',this.tasks)
       
     })
 

@@ -17,7 +17,7 @@ export class TasksService {
   ) { }
 
   getPosts = () => {
-    return this.http.get<any>(`${this.SERVER}/posts`)
+    return this.http.get<any>(`${this.SERVER}/tasks`)
   }
 
 }

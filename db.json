@@ -1,25 +1,26 @@
 {
-  "posts": [
+  "tasks": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Estudar Javascript",
+      "description": "Descrição da tarefa 1"
     },
     {
       "id": 2,
-      "title": "json-server2",
-      "author": "typicode"
+      "title": "Ler artigo sobre Observable",
+      "description": "Descrição da tarefa 2"
     },
     {
       "id": 3,
-      "title": "json-server3",
-      "author": "typicode"
+      "title": "Estudar API REST",
+      "description": "Descrição da tarefa 3"
     },
     {
       "id": 4,
-      "title": "json-server4",
-      "author": "typicode"
+      "title": "Passear com o cachorro",
+      "description": "Descrição da tarefa 4"
     }
+    
   ],
   "comments": [
     {

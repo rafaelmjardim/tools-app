@@ -1,5 +1,15 @@
-<p>tasks works!</p>
 
-<p>Posts</p>
+<div class="tasks">
+    <div class="tasks_box" *ngFor="let task of tasks">
+        <p class="tasks_box_title" >
+            <b>Título:</b>
+            {{ task.title }}
+        </p>
+        <p class="tasks_box_description">
+            <b>Descrição:</b>
+            {{ task.description }}
+        </p>
+    </div>
 
-<p *ngFor="let post of posts">{{post.title}}</p>
+</div>
+
