@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CepService } from './cep.service';
 
 @Component({
   selector: 'app-cep',
@@ -7,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CepComponent implements OnInit {
 
-  constructor() { }
+  cepList: any = [{}];
+  constructor(private cepService: CepService) { }
 
   ngOnInit(): void {
-
+    this.cepService.getCep().subscribe(res => {
+      // console.log('cep', res)
+      this.cepList = res
+    })
     
   }
-  
 
-
-  
 
 }

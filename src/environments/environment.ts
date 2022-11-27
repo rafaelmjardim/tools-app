@@ -4,7 +4,11 @@
 
 export const environment = {
   production: true,
-  API_KEY: 'http://localhost:3000'
+
+  API_KEY: 'http://localhost:3000',
+
+  // API_IBGE: 'http://servicodados.ibge.gov.br/api/v1/localidades/distritos'
+  API_IBGE: 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos?orderBy=nome'
 };
 
 /*

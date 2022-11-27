@@ -10,13 +10,14 @@ import { TaskREQ } from './tasks';
 export class TasksService {
 
   API = environment.API_KEY;
+  SERVER = "http://localhost:3000";
 
   constructor(
     private http: HttpClient
   ) { }
 
   getPosts = () => {
-    return this.http.get<any>(`http://localhost:3000/posts`)
+    return this.http.get<any>(`${this.SERVER}/posts`)
   }
 
 }

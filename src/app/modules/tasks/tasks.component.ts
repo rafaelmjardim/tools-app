@@ -8,13 +8,16 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent implements OnInit {
 
+  posts: any[] = [];
+
   constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void {
 
     this.tasksService.getPosts().subscribe(res => {
-      console.log (res)
-
+      this.posts = res;
+      console.log ('posts',this.posts)
+      
     })
 
   }
