@@ -6,6 +6,8 @@ import { TasksComponent } from './tasks.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NewTeskDialogComponent } from './new-tesk-dialog/new-tesk-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { NewTeskDialogComponent } from './new-tesk-dialog/new-tesk-dialog.compon
     CommonModule,
     TasksRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class TasksModule { }

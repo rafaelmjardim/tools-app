@@ -1,12 +1,12 @@
 <div class="new_task_dialog">
     <h2 class="new_task_dialog_txt">Nova tarefa</h2>
 
-    <form class="new_task_dialog_form" action="">
-        <input type="text" placeholder="Titulo da tarefa">
-        <input type="text" placeholder="Descrição da tarefa">
+    <form class="new_task_dialog_form" [formGroup]="tasksForm">
+        <input type="text" placeholder="Titulo da tarefa" formControlName="titleInput" >
+        <input type="text" placeholder="Descrição da tarefa" formControlName="descriptionInput">
 
         <div class="new_task_dialog_form_actions">
-            <button>Adicionar</button>
+            <button (click)="handleSubmitForm()">Adicionar</button>
         </div>
     </form>
 </div>

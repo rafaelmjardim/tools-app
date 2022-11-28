@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MatDialogModule } from "@angular/material/dialog";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,6 +25,11 @@ import { MatDialogModule } from "@angular/material/dialog";
     HttpClientModule,
     BrowserAnimationsModule,    
     MatDialogModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
+  exports: [
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
