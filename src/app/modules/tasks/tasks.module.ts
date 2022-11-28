@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     TasksRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ]
 })
 export class TasksModule { }

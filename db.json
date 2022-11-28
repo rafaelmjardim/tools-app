@@ -1,26 +1,10 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "Estudar Javascript",
-      "description": "Descrição da tarefa 1"
-    },
-    {
-      "id": 2,
-      "title": "Ler artigo sobre Observable",
-      "description": "Descrição da tarefa 2"
-    },
-    {
       "id": 3,
       "title": "Estudar API REST",
       "description": "Descrição da tarefa 3"
-    },
-    {
-      "id": 4,
-      "title": "Passear com o cachorro",
-      "description": "Descrição da tarefa 4"
     }
-    
   ],
   "comments": [
     {

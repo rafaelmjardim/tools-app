@@ -14,12 +14,26 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.tasksService.getPosts().subscribe(res => {
-      this.tasks = res;
-      console.log ('tasks',this.tasks)
-      
+    this.onGetTasks();
+    
+  }
+
+  handleDeletTasks = () => {
+    
+    this.tasksService.deletTasks(4).subscribe(res => {
+
+      //atualiza o get quando for deletado
+      this.onGetTasks();
     })
 
+    
+  }
+
+  onGetTasks = () => {
+    this.tasksService.getTasks().subscribe(res => {
+      this.tasks = res;
+      
+    })
   }
 
 }

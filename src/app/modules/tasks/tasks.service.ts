@@ -16,8 +16,12 @@ export class TasksService {
     private http: HttpClient
   ) { }
 
-  getPosts = () => {
+  getTasks = () => {
     return this.http.get<any>(`${this.SERVER}/tasks`)
+  }
+
+  deletTasks = (id: number) => {
+    return this.http.delete(`${this.SERVER}/tasks/${id}`)
   }
 
 }

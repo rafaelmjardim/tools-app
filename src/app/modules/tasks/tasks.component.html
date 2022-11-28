@@ -5,10 +5,15 @@
             <b>Título:</b>
             {{ task.title }}
         </p>
+
         <p class="tasks_box_description">
             <b>Descrição:</b>
             {{ task.description }}
         </p>
+
+        <div class="tasks_box_actions">
+            <button (click)="handleDeletTasks()">Delete</button>
+        </div>
     </div>
 
 </div>
