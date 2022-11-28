@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from './tasks.service';
 
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { NewTeskDialogComponent } from './new-tesk-dialog/new-tesk-dialog.component';
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -10,7 +13,10 @@ export class TasksComponent implements OnInit {
 
   tasks!: any;
 
-  constructor(private tasksService: TasksService) { }
+  constructor(
+    private tasksService: TasksService,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
 
@@ -29,6 +35,13 @@ export class TasksComponent implements OnInit {
     this.tasksService.deletTasks(id).subscribe(res => {
       //atualiza o get quando for deletado
       this.onGetTasks();
+    })
+  }
+
+  handleOpenDialog = () => {
+    this.dialog.open(NewTeskDialogComponent, {
+      width: '30rem',
+      height: '40rem',
     })
   }
 }

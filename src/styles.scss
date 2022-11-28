@@ -24,3 +24,12 @@ li {
 a {
     text-decoration: none;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//Mat Angular modificações
+
+mat-dialog-container {
+    background: rgb(71, 71, 71) !important;
+    border: .1px solid greenyellow;
+}

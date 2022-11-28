@@ -33,4 +33,18 @@
             }
         }
     }
+
+    &_newTask {
+        background-color: rgb(69, 134, 69);
+        width: 8rem;
+        height: 8rem;
+        border-radius: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 4rem;
+        right: 4rem;
+        cursor: pointer;
+    }
 }
