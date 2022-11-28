@@ -16,8 +16,8 @@ export class TasksService {
     private http: HttpClient
   ) { }
 
-  getTasks = () => {
-    return this.http.get<any>(`${this.SERVER}/tasks`)
+  getTasks = (): Observable<TaskREQ> => {
+    return this.http.get<TaskREQ>(`${this.SERVER}/tasks`)
   }
 
   deletTasks = (id: number) => {

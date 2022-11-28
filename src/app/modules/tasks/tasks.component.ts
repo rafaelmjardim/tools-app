@@ -8,32 +8,27 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent implements OnInit {
 
-  tasks: any[] = [];
+  tasks!: any;
 
   constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void {
 
     this.onGetTasks();
-    
+
   }
 
-  handleDeletTasks = () => {
-    
-    this.tasksService.deletTasks(4).subscribe(res => {
-
+  
+  onGetTasks = () => {
+    this.tasksService.getTasks().subscribe(res => {
+      this.tasks = res;      
+    })
+  }
+  
+  handleDeletTasks = (id: number) => {
+    this.tasksService.deletTasks(id).subscribe(res => {
       //atualiza o get quando for deletado
       this.onGetTasks();
     })
-
-    
   }
-
-  onGetTasks = () => {
-    this.tasksService.getTasks().subscribe(res => {
-      this.tasks = res;
-      
-    })
-  }
-
 }
