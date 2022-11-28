@@ -1,7 +1,9 @@
 import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import { MatDialogRef } from '@angular/material/dialog';
 import { TaskREQ } from '../tasks';
+import { TasksService } from '../tasks.service';
 @Component({
   selector: 'app-new-tesk-dialog',
   templateUrl: './new-tesk-dialog.component.html',
@@ -13,7 +15,11 @@ export class NewTeskDialogComponent implements OnInit {
 
   newTask!: TaskREQ;
 
-  constructor(private form_builder: FormBuilder) { }
+  constructor(
+    private form_builder: FormBuilder,
+    private tasksService: TasksService,
+    private dialog_ref: MatDialogRef<NewTeskDialogComponent>,
+  ) { }
 
   ngOnInit(): void {
     this.onFormInit();
@@ -36,7 +42,11 @@ export class NewTeskDialogComponent implements OnInit {
       description: descriptionInput
     }
 
-    alert(this.newTask)
+    
+    this.tasksService.postTask(this.newTask).subscribe(res => {
+      console.log('Tarefa adicionada com sucesso!')
+      this.dialog_ref.close();
+    })
   
 
   }

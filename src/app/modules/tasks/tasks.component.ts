@@ -32,7 +32,7 @@ export class TasksComponent implements OnInit {
   }
   
   handleDeletTasks = (id: number) => {
-    this.tasksService.deletTasks(id).subscribe(res => {
+    this.tasksService.deletTask(id).subscribe(res => {
       //atualiza o get quando for deletado
       this.onGetTasks();
     })
