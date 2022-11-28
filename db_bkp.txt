@@ -1,5 +1,3 @@
-{
-  "tasks": [
     {
       "id": 3,
       "title": "Estudar JavaScript",
@@ -25,16 +23,3 @@
       "title": "Adicionar delete ao sistema",
       "description": "Description da tarefa, aqui pode ser feito comentario sobre a tarefa atual"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
-}
-
