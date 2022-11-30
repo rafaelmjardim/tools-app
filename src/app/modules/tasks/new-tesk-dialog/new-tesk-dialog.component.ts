@@ -47,6 +47,7 @@ export class NewTeskDialogComponent implements OnInit {
       console.log('Tarefa adicionada com sucesso!')
       this.dialog_ref.close();
     })
+
   
 
   }
