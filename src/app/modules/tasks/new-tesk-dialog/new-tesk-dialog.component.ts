@@ -15,6 +15,9 @@ export class NewTeskDialogComponent implements OnInit {
 
   newTask!: TaskREQ;
 
+  taskTitle!: any;
+  taskDescription!: any;
+
   constructor(
     private form_builder: FormBuilder,
     private tasksService: TasksService,
@@ -23,6 +26,11 @@ export class NewTeskDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.onFormInit();
+
+    this.tasksService.addTesk.subscribe(res =>
+      this.taskTitle = res.title
+      
+    )
 
   }
 
@@ -34,6 +42,9 @@ export class NewTeskDialogComponent implements OnInit {
   }
 
   handleSubmitForm = () => {
+    
+    this.tasksService.addTesk.next({title: this.taskTitle, description: this.taskDescription})
+
     const titleInput = this.tasksForm.controls['titleInput'].value;
     const descriptionInput = this.tasksForm.controls['descriptionInput'].value;
 
@@ -42,11 +53,16 @@ export class NewTeskDialogComponent implements OnInit {
       description: descriptionInput
     }
 
+    // this.taskTitle = this.newTask.title
+
     
     this.tasksService.postTask(this.newTask).subscribe(res => {
       console.log('Tarefa adicionada com sucesso!')
       this.dialog_ref.close();
     })
+
+    console.log('ADD task', this.taskTitle)
+
 
   
 

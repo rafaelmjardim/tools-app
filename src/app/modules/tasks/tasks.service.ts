@@ -12,6 +12,8 @@ export class TasksService {
   API = environment.API_KEY;
   SERVER = "http://localhost:3000";
 
+  addTesk = new BehaviorSubject<TaskREQ>({title: 'T Inicial', description: 'D inicial'})
+
   constructor(
     private http: HttpClient
   ) { }
