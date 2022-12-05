@@ -8,10 +8,16 @@ import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 })
 export class HomeComponent implements OnInit {
 
+  saldoInicial: number = 0;
+
+  despesa: number = 0;
+
+  saldo!: number;
 
   calcForm!: FormGroup;
 
-  calcInput!: FormControl;
+  calcInput!: any;
+  despesaInput!: any;
 
   constructor(private form_builder: FormBuilder) { }
 
@@ -23,17 +29,31 @@ export class HomeComponent implements OnInit {
 
   onFormInit = () => {
     this.calcForm = this.form_builder.group({
-      calcInput: ['']
+      calcInput: [''],
+      despesaInput: ['']
     })
 
   }
   
-  handleInput = () => {
-    
+  deposito = () => {
     const calcInput = this.calcForm.controls['calcInput'].value;
-  
     this.calcInput = calcInput;
   
-    console.log('input', this.calcInput)
+    this.saldoInicial += this.calcInput ++;
+
+    this.calcForm.reset();
+  
+  }
+
+  adicionarDespesa = () => {
+    const despesaInput = this.calcForm.controls['despesaInput'].value;
+
+    this.despesaInput = despesaInput;
+    this.saldoInicial -= this.despesaInput;
+    
+    this.despesa += this.despesaInput ++;
+
+    this.calcForm.reset();
+  
   }
 }

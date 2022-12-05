@@ -5,10 +5,18 @@
     </div>
     
     <div class="home_calc">
-        <h2>Calcular</h2>
+        <h2>Banco</h2>
         <form action="" [formGroup]="calcForm">
-            <input type="text" placeholder="Informe um valor..." formControlName="calcInput">
-            <button (click)="handleInput()">Enviar</button>
+            <input type="text" placeholder="Depositar na conta" formControlName="calcInput">
+            <button (click)="deposito()">Depositar</button>
+
+            <input type="text" placeholder="Despesas" formControlName="despesaInput">
+            <button (click)="adicionarDespesa()">Depositar</button>
         </form>
+    </div>
+
+    <div class="home_res">
+        <span>Saldo: {{ saldoInicial }}</span>
+        <p>Despesas: {{ despesa }}</p>
     </div>
 </div>
