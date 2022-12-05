@@ -109,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "tools-app"
+  "cli": {
+    "analytics": false
+  }
 }

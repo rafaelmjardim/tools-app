@@ -6,7 +6,9 @@
     
     <div class="home_calc">
         <h2>Calcular</h2>
-        <input type="text" placeholder="Informe um valor..." >
-        <button>Enviar</button>
+        <form action="" [formGroup]="calcForm">
+            <input type="text" placeholder="Informe um valor..." formControlName="calcInput">
+            <button (click)="handleInput()">Enviar</button>
+        </form>
     </div>
 </div>

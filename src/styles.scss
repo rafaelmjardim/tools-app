@@ -27,6 +27,26 @@ a {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+//Config
+
+button {
+    background: transparent;
+    border: .1rem solid greenyellow;
+    border-radius: .4rem;
+    padding: .5rem .8rem;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    border-radius: .8rem;
+    width: 20rem;
+    height: 3rem;
+    padding: 1rem;
+    background-color: rgb(224, 224, 224);
+    color: rgb(32, 32, 32);
+}
+
 //Mat Angular modificações
 
 mat-dialog-container {

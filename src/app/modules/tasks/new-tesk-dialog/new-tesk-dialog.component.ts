@@ -1,6 +1,6 @@
 import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import { UntypedFormBuilder, FormControl, UntypedFormGroup} from "@angular/forms";
 import { MatDialogRef } from '@angular/material/dialog';
 import { TaskREQ } from '../tasks';
 import { TasksService } from '../tasks.service';
@@ -11,7 +11,7 @@ import { TasksService } from '../tasks.service';
 })
 export class NewTeskDialogComponent implements OnInit {
 
-  tasksForm!: FormGroup;
+  tasksForm!: UntypedFormGroup;
 
   newTask!: TaskREQ;
 
@@ -19,7 +19,7 @@ export class NewTeskDialogComponent implements OnInit {
   taskDescription!: any;
 
   constructor(
-    private form_builder: FormBuilder,
+    private form_builder: UntypedFormBuilder,
     private tasksService: TasksService,
     private dialog_ref: MatDialogRef<NewTeskDialogComponent>,
   ) { }
