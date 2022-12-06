@@ -26,6 +26,10 @@ export class TasksService {
     return this.http.delete(`${this.SERVER}/tasks/${id}`)
   }
 
+  putTask = (id: number) => {
+    return this.http.put(`${this.SERVER}/tasks/${id}`, 'task')
+  }
+
   postTask = (newTask: TaskREQ) => {
     return this.http.post<TaskREQ>(`${this.SERVER}/tasks`, {
       title: newTask.title,

@@ -6,19 +6,19 @@
       "description": "Description da tarefa, aqui pode ser feito comentario sobre a tarefa atual"
     },
     {
-      "id": 4,
-      "title": "Adicionar nova library ao projeto",
-      "description": "Description da tarefa, aqui pode ser feito comentario sobre a tarefa atual"
-    },
-    {
       "id": 6,
       "title": "Ler artigo sobre Observable",
       "description": "Description da tarefa, aqui pode ser feito comentario sobre a tarefa atual"
     },
     {
-      "id": 7,
-      "title": "Fazer novos testes com o sistema",
-      "description": "Description da tarefa, aqui pode ser feito comentario sobre a tarefa atual"
+      "title": "a",
+      "description": "a",
+      "id": 7
+    },
+    {
+      "title": "ok",
+      "description": "ok",
+      "id": 8
     }
   ],
   "comments": [

@@ -40,6 +40,15 @@ export class TasksComponent implements OnInit {
     })
   }
 
+  handleUpdateTasks = (id: number) => {
+    this.handleOpenDialog();
+
+
+    this.tasksService.putTask(id).subscribe(res => {
+      // alert('atualizado')
+    })
+  }
+
   handleOpenDialog = () => {
     this.dialog.open(NewTeskDialogComponent, {
       width: '30rem',
