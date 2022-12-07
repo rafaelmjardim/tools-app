@@ -17,6 +17,9 @@ export class NewTeskDialogComponent implements OnInit {
   taskTitle!: any;
   taskDescription!: any;
 
+  titleInput!: string;
+  descriptionInput!: string;
+
   constructor(
     private form_builder: UntypedFormBuilder,
     private tasksService: TasksService,
@@ -34,19 +37,23 @@ export class NewTeskDialogComponent implements OnInit {
     })
   }
 
+  onSetInputs = () => {
+    this.titleInput = this.tasksForm.controls['titleInput'].value;
+    this.descriptionInput = this.tasksForm.controls['descriptionInput'].value;
+  }
+
   handleSubmitForm = () => {
-    const titleInput = this.tasksForm.controls['titleInput'].value;
-    const descriptionInput = this.tasksForm.controls['descriptionInput'].value;
+    this.onSetInputs()
 
     this.newTask = {
-      title: titleInput,
-      description: descriptionInput
+      title: this.titleInput,
+      description: this.descriptionInput
     }
     
     this.tasksService.postTask(this.newTask).subscribe(res => {
-      this.tasksService.addTesk.next({title: this.taskTitle, description: this.taskDescription})
       console.log('Tarefa adicionada com sucesso!')
       this.dialog_ref.close();
     })
+    
   }
 }
