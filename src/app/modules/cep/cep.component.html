@@ -1,3 +1,9 @@
-<p>cep works!</p>
+<!-- <p>cep works!</p> -->
 
 <p *ngFor="let cepOption of cepList">{{cepOption.nome}}</p>
+
+<div>
+    <button (click)="handleMudarValor()">Mudar valor</button>
+
+    <p>{{ valorAlterado }}</p>
+</div>

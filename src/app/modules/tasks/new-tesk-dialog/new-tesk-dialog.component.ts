@@ -1,6 +1,5 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, FormControl, UntypedFormGroup} from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import { MatDialogRef } from '@angular/material/dialog';
 import { TaskREQ } from '../tasks';
 import { TasksService } from '../tasks.service';
@@ -26,12 +25,6 @@ export class NewTeskDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.onFormInit();
-
-    this.tasksService.addTesk.subscribe(res =>
-      this.taskTitle = res.title
-      
-    )
-
   }
 
   onFormInit = () => {
@@ -42,9 +35,6 @@ export class NewTeskDialogComponent implements OnInit {
   }
 
   handleSubmitForm = () => {
-    
-    this.tasksService.addTesk.next({title: this.taskTitle, description: this.taskDescription})
-
     const titleInput = this.tasksForm.controls['titleInput'].value;
     const descriptionInput = this.tasksForm.controls['descriptionInput'].value;
 
@@ -52,20 +42,11 @@ export class NewTeskDialogComponent implements OnInit {
       title: titleInput,
       description: descriptionInput
     }
-
-    // this.taskTitle = this.newTask.title
-
     
     this.tasksService.postTask(this.newTask).subscribe(res => {
+      this.tasksService.addTesk.next({title: this.taskTitle, description: this.taskDescription})
       console.log('Tarefa adicionada com sucesso!')
       this.dialog_ref.close();
     })
-
-    console.log('ADD task', this.taskTitle)
-
-
-  
-
   }
-
 }

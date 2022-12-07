@@ -11,14 +11,9 @@
       "description": "Description da tarefa, aqui pode ser feito comentario sobre a tarefa atual"
     },
     {
-      "title": "a",
-      "description": "a",
+      "title": "teste",
+      "description": "teste",
       "id": 7
-    },
-    {
-      "title": "ok",
-      "description": "ok",
-      "id": 8
     }
   ],
   "comments": [
