@@ -11,7 +11,7 @@ export class CepComponent implements OnInit {
 
   cepList: any = [{}];
 
-  valorAlterado!: Subject<any>;
+  valor = new BehaviorSubject('Valor inicial');
 
   constructor(private cepService: CepService) { }
 
@@ -24,11 +24,7 @@ export class CepComponent implements OnInit {
   }
 
   handleMudarValor = () => {
-    this.cepService.valor.next('Alterado')
-
-    this.cepService.getValor
-
-    console.log('valorAlterado', this.valorAlterado)
+    this.valor.next('Alterado')
   }
 
 }

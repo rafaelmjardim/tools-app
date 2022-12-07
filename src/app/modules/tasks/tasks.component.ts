@@ -3,6 +3,7 @@ import { TasksService } from './tasks.service';
 
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { NewTeskDialogComponent } from './new-tesk-dialog/new-tesk-dialog.component';
+import { TaskREQ } from './tasks';
 
 @Component({
   selector: 'app-tasks',
@@ -40,19 +41,27 @@ export class TasksComponent implements OnInit {
     })
   }
 
-  handleUpdateTasks = (id: number) => {
-    this.handleOpenDialog();
+  handleUpdateTasks = (id: number, task: TaskREQ) => {
+    // this.handleOpenDialog();
 
-
-    this.tasksService.putTask(id).subscribe(res => {
-      // alert('atualizado')
+    this.dialog.open(NewTeskDialogComponent, {
+      width: '30rem',
+      height: '40rem',
+      data: {
+        getTesks: this.onGetTasks,
+        currentTask: task
+      }
     })
+
+    console.log('tasks', task)
+
   }
 
   handleOpenDialog = () => {
     this.dialog.open(NewTeskDialogComponent, {
       width: '30rem',
       height: '40rem',
+      data: this.onGetTasks
     })
   }
 }

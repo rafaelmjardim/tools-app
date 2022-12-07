@@ -10,7 +10,7 @@ export class CepService {
 
   API_CEP = environment.API_IBGE
 
-  valor = new BehaviorSubject('valor inicial');
+  // valor = new BehaviorSubject('valor inicial');
 
 
   constructor(private http: HttpClient) { }
@@ -19,10 +19,6 @@ export class CepService {
    return this.http.get(`${this.API_CEP}`, {
     params: new HttpParams().set('nome', '')
    })
-  }
-
-  getValor = () => {
-     this.valor.next('Teste')
   }
 }
 // https://servicodados.ibge.gov.br/api/v1/localidades/estados/{UF}/distritos

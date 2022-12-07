@@ -27,7 +27,10 @@ export class TasksService {
   }
 
   putTask = (id: number) => {
-    return this.http.put(`${this.SERVER}/tasks/${id}`, 'task')
+    return this.http.put(`${this.SERVER}/tasks/${id}`, {
+      title: 'Titulo atualizado',
+      description: 'Atualizada'
+    })
   }
 
   postTask = (newTask: TaskREQ) => {

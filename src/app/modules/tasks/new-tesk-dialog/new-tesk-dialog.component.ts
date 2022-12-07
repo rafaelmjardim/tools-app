@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TaskREQ } from '../tasks';
 import { TasksService } from '../tasks.service';
 @Component({
@@ -9,6 +9,7 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./new-tesk-dialog.component.scss']
 })
 export class NewTeskDialogComponent implements OnInit {
+  @Input() onGetTasks!: Function;
 
   tasksForm!: UntypedFormGroup;
 
@@ -20,14 +21,26 @@ export class NewTeskDialogComponent implements OnInit {
   titleInput!: string;
   descriptionInput!: string;
 
+  currentTask!: TaskREQ;
+
+
   constructor(
     private form_builder: UntypedFormBuilder,
     private tasksService: TasksService,
     private dialog_ref: MatDialogRef<NewTeskDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) private mat_dialog_data: any,
   ) { }
 
   ngOnInit(): void {
     this.onFormInit();
+    console.log('mat_dialog_data', this.mat_dialog_data)
+
+    if(this.mat_dialog_data.currentTask){
+      this.currentTask = this.mat_dialog_data.currentTask;
+
+      this.tasksForm.controls['titleInput'].setValue(this.currentTask.title)
+      this.tasksForm.controls['descriptionInput'].setValue(this.currentTask.description)
+    }
   }
 
   onFormInit = () => {
@@ -52,8 +65,11 @@ export class NewTeskDialogComponent implements OnInit {
     
     this.tasksService.postTask(this.newTask).subscribe(res => {
       console.log('Tarefa adicionada com sucesso!')
+      this.mat_dialog_data();
       this.dialog_ref.close();
     })
     
   }
+
+  
 }
