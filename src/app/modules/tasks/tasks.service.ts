@@ -14,6 +14,9 @@ export class TasksService {
 
   addTesk = new BehaviorSubject<TaskREQ>({title: 'T Inicial', description: 'D inicial'})
 
+  putTitle!: any;
+  putDescription!: any;
+
   constructor(
     private http: HttpClient
   ) { }
@@ -26,10 +29,10 @@ export class TasksService {
     return this.http.delete(`${this.SERVER}/tasks/${id}`)
   }
 
-  putTask = (id: number) => {
+  putTask = (id: number, task: TaskREQ) => {
     return this.http.put(`${this.SERVER}/tasks/${id}`, {
-      title: 'Titulo atualizado',
-      description: 'Atualizada'
+      title: task.title,
+      description: task.description
     })
   }
 

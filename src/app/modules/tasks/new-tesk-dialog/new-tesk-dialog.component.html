@@ -6,7 +6,7 @@
         <input type="text" placeholder="Descrição da tarefa" formControlName="descriptionInput">
 
         <div class="new_task_dialog_form_actions">
-            <button (click)="handleSubmitForm()">{{ currentTask ? 'Atualizar' : 'Adicionar'}}</button>
+            <button (click)="handleSubmitForm(currentTaskId, currentTask)">{{ currentTask ? 'Atualizar' : 'Adicionar'}}</button>
         </div>
     </form>
 </div>

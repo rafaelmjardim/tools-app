@@ -23,6 +23,8 @@ export class NewTeskDialogComponent implements OnInit {
 
   currentTask!: TaskREQ;
 
+  currentTaskId!: any;
+
 
   constructor(
     private form_builder: UntypedFormBuilder,
@@ -37,6 +39,8 @@ export class NewTeskDialogComponent implements OnInit {
 
     if(this.mat_dialog_data.currentTask){
       this.currentTask = this.mat_dialog_data.currentTask;
+      
+      this.currentTaskId = this.currentTask.id;
 
       this.tasksForm.controls['titleInput'].setValue(this.currentTask.title)
       this.tasksForm.controls['descriptionInput'].setValue(this.currentTask.description)
@@ -55,19 +59,32 @@ export class NewTeskDialogComponent implements OnInit {
     this.descriptionInput = this.tasksForm.controls['descriptionInput'].value;
   }
 
-  handleSubmitForm = () => {
+  handleSubmitForm = (id: number, task: TaskREQ) => {
     this.onSetInputs()
 
     this.newTask = {
       title: this.titleInput,
       description: this.descriptionInput
     }
-    
-    this.tasksService.postTask(this.newTask).subscribe(res => {
-      console.log('Tarefa adicionada com sucesso!')
-      this.mat_dialog_data();
-      this.dialog_ref.close();
-    })
+    if(!this.currentTask){
+      //POST
+      this.tasksService.postTask(this.newTask).subscribe(res => {
+        console.log('Tarefa adicionada com sucesso!')
+        this.mat_dialog_data();
+        this.dialog_ref.close();
+      })
+    } else {
+      //PUT
+      this.tasksService.putTask(id, task).subscribe(res => {
+        console.log('Tarefa Atualizada com sucesso!')
+      task.title = this.currentTask.title;
+      task.description = this.currentTask.description;
+
+      // console.log('currentTaks', this.currentTask.title)
+        
+        
+      })
+    }
     
   }
 
