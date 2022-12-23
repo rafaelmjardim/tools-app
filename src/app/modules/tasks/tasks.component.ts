@@ -30,7 +30,9 @@ export class TasksComponent implements OnInit {
   
   onGetTasks = () => {
     this.tasksService.getTasks().subscribe(res => {
-      this.tasks = res;      
+      this.tasks = res;
+      
+      console.log('Teste get',res)
     })
   }
   
